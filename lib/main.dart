@@ -36,7 +36,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             items: [
               Icon(FontAwesomeIcons.calculator, size: 30, color: Color(0xff425c5a)),
               Icon(FontAwesomeIcons.weight, size: 30, color: Color(0xff425c5a)),
-              Icon(Icons.exit_to_app,size: 30, color: Color(0xff425c5a)),
+              Icon(FontAwesomeIcons.dollarSign,size: 30, color: Color(0xff425c5a)),
             ],
             animationDuration: Duration(milliseconds: 800),
             animationCurve: Curves.bounceInOut,
