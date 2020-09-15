@@ -23,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: DashboardPage(currencyVal: 0.0, convertedCurrency: 0.0, currencyone: 'USD', currencytwo: 'RUB', isWhite: false),
+      body: DashboardPage(currencyVal: 0.0, convertedCurrency: 0.0, currencyone: 'USD', currencytwo: 'INR', isWhite: false),
     );
   }
 }

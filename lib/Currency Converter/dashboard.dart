@@ -22,30 +22,10 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-
-  CurrencyList currencyList = CurrencyList();
-  CurrencyService currencyService = CurrencyService();
-
-
-
-
-
-  // currencyOneChanged(String value) {
-  //   setState(() {
-  //     widget.currencyone = value;
-  //   });
-  // }
-
-  // currencyTwoChanged(String value) {
-  //   setState(() {
-  //     widget.currencytwo = value;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
-    return Material(
-        child: Stack(
+    return Scaffold(
+        body: Stack(
           children: [
             Container(
               height: MediaQuery
@@ -91,16 +71,16 @@ class _DashboardPageState extends State<DashboardPage> {
                     SizedBox(
                       height: 20.0,
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                InputWhitePage(
-                                  origCurrency: widget.currencyone,
-                                  convCurrency: widget.currencytwo,
-                                )));
-                      },
-                      child: Container(
+                    Flexible(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  InputWhitePage(
+                                    origCurrency: widget.currencyone,
+                                    convCurrency: widget.currencytwo,
+                                  )));
+                        },
                         child: Text((widget.currencyVal.toString()),
                             style: TextStyle(
                               color: Color(0xff425c5a),
@@ -147,22 +127,24 @@ class _DashboardPageState extends State<DashboardPage> {
                           fontFamily: 'Quicksand',
                           fontWeight: FontWeight.bold),
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                InputGreenPage(
-                                  origCurrency: widget.currencyone,
-                                  convCurrency: widget.currencytwo,
-                                )
-                        ));
-                      },
-                      child: Text(
-                        widget.convertedCurrency.toString(),
-                        style: TextStyle(
-                            color: Color(0xffffcea2),
-                            fontSize: 120.0,
-                            fontFamily: 'Quicksand'),
+                    Flexible(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  InputGreenPage(
+                                    origCurrency: widget.currencyone,
+                                    convCurrency: widget.currencytwo,
+                                  )
+                          ));
+                        },
+                        child: Text(
+                          widget.convertedCurrency.toString(),
+                          style: TextStyle(
+                              color: Color(0xffffcea2),
+                              fontSize: 120.0,
+                              fontFamily: 'Quicksand'),
+                        ),
                       ),
                     ),
                     SizedBox(height: 20.0),
@@ -173,7 +155,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         ));
                       },
                       child: Text(
-                          '${CurrencyList(selectedCurrency: widget.currencyone,) ?? 'INR'}',
+                          '${CurrencyList(selectedCurrency: widget.currencytwo,) ?? 'INR'}',
                         style: TextStyle(
                             color: Color(0xffffcea2),
                             fontSize: 22.0,

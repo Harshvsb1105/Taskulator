@@ -28,7 +28,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
         .get(Uri.encodeFull(uri), headers: {"Accept": "application/json"});
     var responseBody = json.decode(response.body);
     setState(() {
-      result = (double.parse(currInput.toString()) * (responseBody["rates"][toCurrency])).toString();
+      result = (double.parse(currInput.toString()) * (responseBody["rates"][toCurrency])).toStringAsFixed(3);
     });
     print(result);
     return Navigator.of(context).pushReplacement(
