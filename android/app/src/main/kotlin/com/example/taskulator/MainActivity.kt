@@ -1,4 +1,4 @@
-package com.example.taskulator
+package taskulator.fullv
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,5 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'currencyService.dart';
+import 'package:http/http.dart' as http;
+
+import 'dashboard.dart';
+
 
 class InputWhitePage extends StatefulWidget {
   final origCurrency;
@@ -13,6 +19,30 @@ class InputWhitePage extends StatefulWidget {
 
 class _InputWhitePageState extends State<InputWhitePage> {
   var currInput = 0;
+  String result;
+
+
+  Future<String> convertCurrency(String fromCurrency, String toCurrency, int currInput, context) async {
+    String uri = "https://api.exchangeratesapi.io/latest?base=$fromCurrency&symbols=$toCurrency";
+    var response = await http
+        .get(Uri.encodeFull(uri), headers: {"Accept": "application/json"});
+    var responseBody = json.decode(response.body);
+    setState(() {
+      result = (double.parse(currInput.toString()) * (responseBody["rates"][toCurrency])).toString();
+    });
+    print(result);
+    return Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+            builder: (context) => DashboardPage(
+              currencyVal: currInput,
+              convertedCurrency: result,
+              currencyone: fromCurrency,
+              currencytwo: toCurrency,
+              isWhite: false,
+            )
+        )
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -186,8 +216,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
         ),
         InkWell(
           onTap: () {
-            CurrencyService().convertCurrency(
-                widget.origCurrency, widget.convCurrency, currInput, context);
+              convertCurrency(widget.origCurrency, widget.convCurrency, currInput, context);
           },
           child: Container(
             height: 80.0,
