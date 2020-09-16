@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:taskulator/Currency%20Converter/CurrencyList.dart';
@@ -8,7 +9,6 @@ import 'package:http/http.dart' as http;
 import 'WhiteNumPad.dart';
 
 class DashboardPage extends StatefulWidget {
-  final fromTextController = TextEditingController();
   final currencyVal;
   final convertedCurrency;
   String currencyone;
@@ -22,6 +22,7 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,23 +72,22 @@ class _DashboardPageState extends State<DashboardPage> {
                     SizedBox(
                       height: 20.0,
                     ),
-                    Flexible(
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  InputWhitePage(
-                                    origCurrency: widget.currencyone,
-                                    convCurrency: widget.currencytwo,
-                                  )));
-                        },
-                        child: Text((widget.currencyVal.toString()),
-                            style: TextStyle(
-                              color: Color(0xff425c5a),
-                              fontSize: 120.0,
-                              fontFamily: 'Quicksand',
-                            )
-                        ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                InputWhitePage(
+                                  origCurrency: widget.currencyone,
+                                  convCurrency: widget.currencytwo,
+                                )));
+                      },
+                      child: AutoSizeText((widget.currencyVal.toString()),
+                          style: TextStyle(
+                            color: Color(0xff425c5a),
+                            fontSize: 120.0,
+                            fontFamily: 'Quicksand',
+                          ),
+                        maxLines: 1,
                       ),
                     ),
                     Text(widget.currencyone,
@@ -127,24 +127,23 @@ class _DashboardPageState extends State<DashboardPage> {
                           fontFamily: 'Quicksand',
                           fontWeight: FontWeight.bold),
                     ),
-                    Flexible(
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  InputGreenPage(
-                                    origCurrency: widget.currencyone,
-                                    convCurrency: widget.currencytwo,
-                                  )
-                          ));
-                        },
-                        child: Text(
-                          widget.convertedCurrency.toString(),
-                          style: TextStyle(
-                              color: Color(0xffffcea2),
-                              fontSize: 120.0,
-                              fontFamily: 'Quicksand'),
-                        ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                InputGreenPage(
+                                  origCurrency: widget.currencyone,
+                                  convCurrency: widget.currencytwo,
+                                )
+                        ));
+                      },
+                      child: AutoSizeText(
+                        widget.convertedCurrency.toString(),
+                        style: TextStyle(
+                            color: Color(0xffffcea2),
+                            fontSize: 120.0,
+                            fontFamily: 'Quicksand'),
+                        maxLines: 1,
                       ),
                     ),
                     SizedBox(height: 20.0),
@@ -155,7 +154,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         ));
                       },
                       child: Text(
-                          '${CurrencyList(selectedCurrency: widget.currencytwo,) ?? 'INR'}',
+                          '${CurrencyList(selectedCurrency: widget.currencytwo,)}',
                         style: TextStyle(
                             color: Color(0xffffcea2),
                             fontSize: 22.0,

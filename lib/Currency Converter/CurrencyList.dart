@@ -38,6 +38,19 @@ class _CurrencyListState extends State<CurrencyList> {
 
   @override
   Widget build(BuildContext context) {
+    //
+    // _onCurrencyOneChanged(String value) {
+    //   setState(() {
+    //     widget.currencyone = value;
+    //   });
+    // }
+    //
+    // _onCurrencyTwoChanged(String value) {
+    //   setState(() {
+    //     widget.currencytwo = value;
+    //   });
+    // }
+
     return Scaffold(
         backgroundColor: Color(0xff425c5a),
         appBar: AppBar(

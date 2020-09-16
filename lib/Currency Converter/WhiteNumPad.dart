@@ -1,9 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'currencyService.dart';
 import 'package:http/http.dart' as http;
-
 import 'dashboard.dart';
 
 
@@ -216,7 +213,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
         ),
         InkWell(
           onTap: () {
-              convertCurrency(widget.origCurrency, widget.convCurrency, currInput, context);
+            convertCurrency(widget.origCurrency, widget.convCurrency, currInput, context);
           },
           child: Container(
             height: 80.0,

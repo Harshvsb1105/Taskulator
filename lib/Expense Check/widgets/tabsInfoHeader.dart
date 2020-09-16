@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
@@ -71,12 +72,10 @@ class TabsInfoHeader extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Expanded(
-            child: Text(
-                getTotalAmountFormatted(
-                    tabs, Provider.of<SettingsState>(context).selectedCurrency),
-                style: TextStyle(color: Color(0xff425c5a), fontSize: 45, fontWeight: FontWeight.bold)),
-          ),
+          AutoSizeText(
+              getTotalAmountFormatted(
+                  tabs, Provider.of<SettingsState>(context).selectedCurrency),
+              style: TextStyle(color: Color(0xff425c5a), fontSize: 45, fontWeight: FontWeight.bold),maxLines: 1,),
           SizedBox(
             height: 10,
           ),

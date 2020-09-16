@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:taskulator/Currency%20Converter/dashboard.dart';
 
@@ -31,13 +29,13 @@ class _InputGreenPageState extends State<InputGreenPage> {
     print(result);
     return Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => DashboardPage(
-            currencyVal: currInput,
-            convertedCurrency: result,
-            currencyone: fromCurrency,
-            currencytwo: toCurrency,
-            isWhite: false,
-          )
+            builder: (context) => DashboardPage(
+              currencyVal: currInput,
+              convertedCurrency: result,
+              currencyone: fromCurrency,
+              currencytwo: toCurrency,
+              isWhite: false,
+            )
         )
     );
   }
@@ -209,7 +207,7 @@ class _InputGreenPageState extends State<InputGreenPage> {
         ),
         InkWell(
           onTap: () {
-              convertCurrency(widget.convCurrency, widget.origCurrency, currInput, context);
+            convertCurrency(widget.convCurrency, widget.origCurrency, currInput, context);
           },
           child: Container(
             height: 80.0,

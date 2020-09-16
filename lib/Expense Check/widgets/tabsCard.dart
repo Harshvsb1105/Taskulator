@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_money_formatter/flutter_money_formatter.dart';
@@ -42,11 +43,10 @@ class TabCard extends StatelessWidget {
                 this.tab["name"],
                 style: TextStyle(color: Color(0xff425c5a)),
               ),
-              Expanded(
-                child: Text(
-                  "${Provider.of<SettingsState>(context).selectedCurrency} ${FlutterMoneyFormatter(amount: this.tab["amount"]).output.nonSymbol}",
-                  style: TextStyle(color: Color(0xff425c5a), fontWeight: FontWeight.bold, fontSize: 22)
-                ),
+              AutoSizeText(
+                "${Provider.of<SettingsState>(context).selectedCurrency} ${FlutterMoneyFormatter(amount: this.tab["amount"]).output.nonSymbol}",
+                style: TextStyle(color: Color(0xff425c5a), fontWeight: FontWeight.bold, fontSize: 22),
+                maxLines: 1,
               ),
               Chip(
                 backgroundColor: this.tab["closed"] == true
