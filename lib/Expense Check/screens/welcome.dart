@@ -23,6 +23,7 @@ class _WelcomeState extends State<Welcome> {
     // ModalRoute.of(context).settings.name == null;       //bug
     // ModalRoute.of(context).settings.arguments != null;  //ok
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: loading
           ? Center(
         child: SpinKitDoubleBounce(
@@ -41,7 +42,7 @@ class _WelcomeState extends State<Welcome> {
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
                   Text(
-                    "Tabs",
+                    "Tally",
                     style: Theme.of(context)
                         .textTheme
                         .headline3
@@ -61,50 +62,52 @@ class _WelcomeState extends State<Welcome> {
                     ),
                   ),
                   Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        SignInButton(
-                          Buttons.Google,
-                          onPressed: () async {
-                            setState(() => loading = true);
-                            final user = await Auth.googleSignIn();
-                            setState(() => loading = false);
-                            if (user != null)
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Home(user)),
-                                  ModalRoute.withName("/")
-                              );
-                          },
-                        ),
-                        Row(children: <Widget>[
-                          Expanded(child: Divider(color: Color(0xffffcea2),)),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text("OR", style: TextStyle(color: Color(0xffffcea2)),),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          SignInButton(
+                            Buttons.Google,
+                            onPressed: () async {
+                              setState(() => loading = true);
+                              final user = await Auth.googleSignIn();
+                              setState(() => loading = false);
+                              if (user != null)
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Home(user)),
+                                    ModalRoute.withName("/")
+                                );
+                            },
                           ),
-                          Expanded(child: Divider(color: Color(0xffffcea2),)),
-                        ]),
-                        RaisedButton(
-                          child: Text("Create Account", style: TextStyle(color: Color(0xff425c5a)),),
-                          onPressed: () {
-                            Navigator.pushNamed(context, Register.id);
-                          },
-                        ),
-                        FlatButton(
-                          child: Text(
-                            "Sign In",
-                            style: TextStyle(
-                                color: Theme.of(context).accentColor),
+                          Row(children: <Widget>[
+                            Expanded(child: Divider(color: Color(0xffffcea2),)),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text("OR", style: TextStyle(color: Color(0xffffcea2)),),
+                            ),
+                            Expanded(child: Divider(color: Color(0xffffcea2),)),
+                          ]),
+                          RaisedButton(
+                            child: Text("Create Account", style: TextStyle(color: Color(0xff425c5a)),),
+                            onPressed: () {
+                              Navigator.pushNamed(context, Register.id);
+                            },
                           ),
-                          onPressed: () {
-                            Navigator.pushNamed(context, Login.id);
-                          },
-                        )
-                      ],
+                          FlatButton(
+                            child: Text(
+                              "Sign In",
+                              style: TextStyle(
+                                  color: Theme.of(context).accentColor),
+                            ),
+                            onPressed: () {
+                              Navigator.pushNamed(context, Login.id);
+                            },
+                          )
+                        ],
+                      ),
                     ),
                   )
                 ],

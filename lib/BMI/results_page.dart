@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskulator/BMI/resultpage_reusablecard.dart';
 import 'constants.dart';
 import 'bottom_button.dart';
 import 'reusable_card.dart';
@@ -38,7 +39,7 @@ class ResultsPage extends StatelessWidget {
           ),
           Expanded(
             flex: 5,
-            child: ReusableCard(
+            child: ResultReusableCard(
               colour: kActiveCardColour,
               cardChild: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,

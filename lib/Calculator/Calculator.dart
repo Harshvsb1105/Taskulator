@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
     '+',
     '0',
     '.',
-    'ANS',
+    '00',
     '=',
   ];
 
@@ -61,38 +61,35 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Color(0xffffffff),
         body: Column(
           children: [
-            Expanded(
-              child: Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                      height: 50,
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      userQuestion,
+                      style: TextStyle(fontSize: 20, color: Color(0xff425c5a)),
                     ),
-                    Container(
-                      padding: EdgeInsets.all(20),
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        userQuestion,
-                        style: TextStyle(fontSize: 20, color: Color(0xff425c5a)),
-                      ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      userAnswer,
+                      style: TextStyle(fontSize: 40,color: Color(0xff425c5a)),
                     ),
-                    Container(
-                      padding: EdgeInsets.all(20),
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        userAnswer,
-                        style: TextStyle(fontSize: 40,color: Color(0xff425c5a)),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-            Expanded(
+            Flexible(
               flex: 2,
               child: Container(
-                height: MediaQuery.of(context).size.height,
                 padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
                     color: Color(0xff425c5a),
@@ -101,7 +98,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: GridView.builder(
                     itemCount: buttons.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4),
+                        crossAxisCount: 4,
+                      childAspectRatio: MediaQuery.of(context).size.width /
+                          (MediaQuery.of(context).size.height / 2.1),
+                    ),
                     itemBuilder: (BuildContext context, int index) {
                       if (index == 0) {
                         return

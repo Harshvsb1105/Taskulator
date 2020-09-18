@@ -33,7 +33,7 @@ dependencies:
   flutter_typeahead: ^1.8.8
   flutter_launcher_icons: ^0.8.0
   auto_size_text: ^2.1.0
-
+  flutter_device_type: ^0.2.0
 
 
 
@@ -44,7 +44,7 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/payment.png"
+  image_path: "assets/launcher-icon/payment.png"
 
 
 flutter:
@@ -52,8 +52,12 @@ flutter:
   uses-material-design: true
   assets:
     - assets/graphics/
-    - assets/payment.png
+    - assets/launcher-icon/payment.png
+    - assets/
   fonts:
+    - family: Rockwell
+      fonts:
+        - asset: assets/fonts/Rockwell.ttc
     - family: Rubik
       fonts:
         - asset: assets/fonts/Rubik-Regular.ttf
@@ -63,6 +67,7 @@ flutter:
           weight: 200
         - asset: assets/fonts/Rubik-Medium.ttf
           weight: 400
+
 
 
 

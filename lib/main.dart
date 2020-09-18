@@ -3,8 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:taskulator/BMI/BMI.dart';
 import 'package:taskulator/Calculator/Calculator.dart';
-import 'package:taskulator/Currency%20Converter/Currency%20Converter%20main.dart';
-
+import 'CurrencyConverter/CurrencyConverterMain.dart';
 import 'Expense Check/ExpenseCheck.dart';
 
 void main() {
@@ -30,7 +29,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final pageOptions =[
     ExpenseCheck(),
     Calculator(),
-    CurrencyConverter(),
+    FlutterCurrencyConverter(),
     BMICalculator(),
   ];
 
