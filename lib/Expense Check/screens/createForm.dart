@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:taskulator/Expense%20Check/controllers/tabsController.dart';
 import 'package:taskulator/Expense%20Check/provider/settingsState.dart';
 import 'package:taskulator/Expense%20Check/provider/suggestionsState.dart';
-import 'package:taskulator/Expense%20Check/services/contacts.dart';
 
 
 class CreateForm extends StatefulWidget {
@@ -30,7 +28,7 @@ class _CreateFormState extends State<CreateForm> {
   @override
   void initState() {
     super.initState();
-    Contacts();
+    // Contacts();
     // Contacts.checkPermission();
   }
 
