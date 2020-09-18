@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "1085546118763-3oandohorls3u1k3qa504698l1v3kqes.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "taskulator.fullv",
+            "certificate_hash": "5a48faa288b79357b51b3207240913b385a96774"
+          }
+        },
+        {
+          "client_id": "1085546118763-um67o0m5bk5s9ag7tmv3hedogt4ripp0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "taskulator.fullv",
+            "certificate_hash": "628eeb597b8690d1849499f2c340b7a07571b418"
+          }
+        },
+        {
           "client_id": "1085546118763-7b3q8ds1dnpgae719ano7a12cq0g1j2f.apps.googleusercontent.com",
           "client_type": 3
         }
